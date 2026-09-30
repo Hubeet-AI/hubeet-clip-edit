@@ -1,16 +1,16 @@
-# ClipEdit ✂️📋
+# Hubeet ClipEdit ✂️📋
 
 > **Clipboard Transformer & Ephemeral Editor between Copy and Paste** for macOS.
 
-ClipEdit introduces a lightweight, zero-latency intermediate layer between **Copy (⌘C)** and **Paste (⌘V)**. 
+Hubeet ClipEdit introduces a lightweight, zero-latency intermediate layer between **Copy (⌘C)** and **Paste (⌘V)**. 
 
-Instead of opening a scratch text editor, pasting, cleaning up text, re-copying, and switching back to your target app, ClipEdit summons a floating, keyboard-first HUD directly over your current workspace. Edit in place with instant transforms, press `⌘Enter`, and paste immediately.
+Instead of opening a scratch text editor, pasting, cleaning up text, re-copying, and switching back to your target app, Hubeet ClipEdit summons a floating, keyboard-first HUD directly over your current workspace. Edit in place with instant transforms, press `⌘Enter`, and paste immediately.
 
 ```text
 Standard macOS Flow:
 Select  →  ⌘C  →  [Switch App → Paste → Edit → Select All → ⌘C → Switch Back]  →  ⌘V
 
-ClipEdit Flow:
+Hubeet ClipEdit Flow:
 Select  →  ⌘C  →  ⌘⇧C  →  Edit / Quick Transform  →  ⌘Enter  →  ⌘V
 ```
 
