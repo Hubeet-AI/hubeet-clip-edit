@@ -12,5 +12,6 @@ xcuserdata/
 .swiftpm/
 
 # Artifacts
+*.zip
 .*/
 !.github/
