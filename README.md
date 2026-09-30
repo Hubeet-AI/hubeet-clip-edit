@@ -16,6 +16,63 @@ Select  →  ⌘C  →  ⌘⇧C  →  Edit / Quick Transform  →  ⌘Enter  →
 
 ---
 
+## 💡 About Hubeet Clip Edit
+
+**Hubeet Clip Edit** is a lightweight macOS clipboard editor and transformer built as part of the **[Hubeet](https://www.hubeet.com/)** ecosystem.
+
+It introduces a simple intermediate layer between Copy and Paste:
+
+$$\text{Copy} \longrightarrow \text{Edit / Transform} \longrightarrow \text{Paste}$$
+
+The goal is to make clipboard content directly manipulable without interrupting the user's workflow or requiring a separate text editor.
+
+Hubeet Clip Edit is designed around a simple principle:
+> **The clipboard should not only store information. It should be a place where information can be transformed before it moves somewhere else.**
+
+### Hubeet
+
+[Hubeet](https://www.hubeet.com/) is an AI platform that connects people, enterprise systems, data sources, APIs, documents, and AI agents through natural language interfaces.
+
+Hubeet Clip Edit explores that same idea at the operating-system level: creating a lightweight interaction layer between the user and the information moving across applications.
+
+Future versions may integrate Hubeet capabilities to provide intelligent clipboard transformations such as:
+- Rewriting content
+- Summarization
+- Translation
+- Structured data extraction
+- Sensitive-data redaction
+- Format conversion
+- Contextual transformations
+- Custom enterprise actions
+- AI-powered transformation pipelines
+
+**Example workflow:**
+```text
+⌘C  →  Hubeet Clip Edit  →  Edit / Transform / Ask AI  →  ⌘V
+```
+
+This allows the clipboard to evolve from a passive buffer into an active information transformation layer.
+
+### Philosophy
+
+Hubeet Clip Edit should feel less like opening another application and more like invoking a native operating-system capability.
+
+The fundamental interaction must remain:
+```text
+Invoke  →  Edit  →  Confirm  →  Paste
+```
+Every new feature should preserve that simplicity.
+
+### Project Details
+
+- **Project:** Hubeet Clip Edit
+- **Platform:** macOS (macOS 14+)
+- **Technology:** Swift / SwiftUI / AppKit
+- **Website:** [https://www.hubeet.com](https://www.hubeet.com/)
+- **Product Ecosystem:** Part of the Hubeet ecosystem. Learn more at [https://www.hubeet.com](https://www.hubeet.com/).
+
+---
+
 ## ✨ Features
 
 - ⚡️ **Global Shortcut (`⌘ + ⇧ + C`)**: Intercepts anywhere across macOS without stealing ongoing application state.
