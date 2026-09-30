@@ -1,0 +1,58 @@
+name: Release macOS App
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build & Release macOS App
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Application (Release)
+        run: |
+          xcodebuild -project ClipEdit.xcodeproj \
+            -scheme ClipEdit \
+            -configuration Release \
+            -derivedDataPath ./build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package App as ZIP
+        run: |
+          TAG_NAME="${{ github.ref_name }}"
+          if [ -z "$TAG_NAME" ] || [ "$TAG_NAME" = "main" ]; then
+            TAG_NAME="v1.0.0"
+          fi
+          ditto -c -k --sequesterRsrc --keepParent \
+            ./build/Build/Products/Release/ClipEdit.app \
+            ./ClipEdit-${TAG_NAME}-macOS.zip
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ClipEdit-*-macOS.zip
+          name: Hubeet ClipEdit ${{ github.ref_name }}
+          generate_release_notes: true
+          body: |
+            ## Hubeet ClipEdit ✂️📋
+            > Ephemeral clipboard editor & transformer between Copy and Paste for macOS.
+
+            ### 🚀 Quick Start
+            1. Download and unzip `ClipEdit-${{ github.ref_name }}-macOS.zip`.
+            2. Move `ClipEdit.app` to your `/Applications` folder.
+            3. Since this build is community-distributed, on first run:
+               - Right-click `ClipEdit.app` → select **Open** → click **Open**, or
+               - Run `xattr -cr /Applications/ClipEdit.app` in Terminal.
+            4. Press **⌘ + ⇧ + C** anywhere across macOS to edit your clipboard!
