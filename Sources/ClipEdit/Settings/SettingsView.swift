@@ -140,12 +140,15 @@ public struct SettingsView: View {
     // MARK: - About Tab
     private var aboutTab: some View {
         VStack(spacing: 12) {
-            Image(systemName: "doc.on.clipboard.fill")
-                .font(.system(size: 44))
-                .foregroundStyle(Color.accentColor)
+            Image(nsImage: NSApp.applicationIconImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 64, height: 64)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .shadow(color: Color.black.opacity(0.15), radius: 6, x: 0, y: 3)
 
             VStack(spacing: 4) {
-                Text("ClipEdit")
+                Text("Hubeet ClipEdit")
                     .font(.system(size: 18, weight: .bold))
                 Text("Version 1.0.0")
                     .font(.system(size: 12))

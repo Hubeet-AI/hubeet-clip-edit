@@ -14,6 +14,7 @@
 		3767259EB6EDE2C246CBE486 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB066B61C5E58F261FB82319 /* SettingsView.swift */; };
 		4896BD75E06479E937D99C28 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF9D689C53B662E4D54BB8 /* HotKeyManager.swift */; };
 		498614CEAA4AB9E50CE58F9C /* ClipboardServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5F39B8964AEB615EA8C8F /* ClipboardServiceTests.swift */; };
+		4C6BA81DD0FF2ACF6977B801 /* hubeet-clip-ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F8465AF953B2B010C132 /* hubeet-clip-ico.png */; };
 		576840FB21F79593C48BD8A7 /* CarbonHotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FE8D78A7869D77EC9D593 /* CarbonHotKey.swift */; };
 		5F686C1D630F173EC76E5592 /* NativeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2B70EAC51E01316330782 /* NativeTextView.swift */; };
 		6107AD652B10DF40D56D76BA /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F49BCBDFE5F8047C94B79 /* LaunchAtLoginManager.swift */; };
@@ -30,6 +31,7 @@
 		CC5894C145AFD756AB019908 /* IntelligentTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291BC0CD1ACABD80BBBEC3 /* IntelligentTransform.swift */; };
 		CF1E39D8E16CE6426AE67D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2871F12615A5823E0E1B3E06 /* AppDelegate.swift */; };
 		D4754565148E2C5591C1B62B /* TrimTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8F7165BC42F1523C31B5 /* TrimTransform.swift */; };
+		E1964F9CDC2C971F680903A4 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = FCEA51E7630555CCBEC8C276 /* AppIcon.icns */; };
 		FD5DF29E53266E3B8AE4BA18 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78B1EF23B5BE4181243854 /* EditorViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,7 @@
 		21291BC0CD1ACABD80BBBEC3 /* IntelligentTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelligentTransform.swift; sourceTree = "<group>"; };
 		2871F12615A5823E0E1B3E06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B61F2DF122D964C9F03439 /* ClipEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E5F8465AF953B2B010C132 /* hubeet-clip-ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hubeet-clip-ico.png"; sourceTree = "<group>"; };
 		4A9B1B55936277E86FBE0B94 /* ClipEditApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipEditApp.swift; sourceTree = "<group>"; };
 		5B0D0DEA24F5CD04CF161279 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		614FE8D78A7869D77EC9D593 /* CarbonHotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonHotKey.swift; sourceTree = "<group>"; };
@@ -72,13 +75,16 @@
 		CF46A26328AC1C8FDCB2BC92 /* CaseTransforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTransforms.swift; sourceTree = "<group>"; };
 		DB2F8F7165BC42F1523C31B5 /* TrimTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimTransform.swift; sourceTree = "<group>"; };
 		DE78B1EF23B5BE4181243854 /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
+		FCEA51E7630555CCBEC8C276 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		1564475A4926C3097871A8EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCEA51E7630555CCBEC8C276 /* AppIcon.icns */,
 				A866DB0D7D7E2D97B05DB0A7 /* ClipEdit.entitlements */,
+				44E5F8465AF953B2B010C132 /* hubeet-clip-ico.png */,
 				0E4473F2F546EDBD8AA086BC /* Info.plist */,
 			);
 			path = Resources;
@@ -232,6 +238,7 @@
 			buildConfigurationList = 7050B4699FE5FAD53AD83FB8 /* Build configuration list for PBXNativeTarget "ClipEdit" */;
 			buildPhases = (
 				C79098EF97169C7BABCC744A /* Sources */,
+				E1B13655733D71779D7FAFB1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -274,6 +281,18 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1B13655733D71779D7FAFB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1964F9CDC2C971F680903A4 /* AppIcon.icns in Resources */,
+				4C6BA81DD0FF2ACF6977B801 /* hubeet-clip-ico.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		13B5BD83144C943BBB89C4A4 /* Sources */ = {

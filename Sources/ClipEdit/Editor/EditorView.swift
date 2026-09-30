@@ -41,11 +41,13 @@ public struct EditorView: View {
     // MARK: - Header
     private var headerView: some View {
         HStack(spacing: 8) {
-            Image(systemName: "doc.on.clipboard.fill")
-                .foregroundStyle(Color.accentColor)
-                .imageScale(.medium)
+            Image(nsImage: NSApp.applicationIconImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 18, height: 18)
+                .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
 
-            Text("ClipEdit")
+            Text("Hubeet ClipEdit")
                 .font(.system(size: 13, weight: .semibold, design: .rounded))
                 .foregroundStyle(.primary)
 
