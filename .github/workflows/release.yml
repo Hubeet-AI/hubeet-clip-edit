@@ -31,6 +31,26 @@ jobs:
         run: |
           sed -i '' 's/objectVersion = 77;/objectVersion = 56;/' ClipEdit.xcodeproj/project.pbxproj || true
 
+      - name: Import Apple Certificate (if secret is configured)
+        if: env.BUILD_CERTIFICATE_BASE64 != ''
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.MACOS_CERTIFICATE }}
+          P12_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.MACOS_KEYCHAIN_PWD }}
+        run: |
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+
+          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+
       - name: Build Application (Release)
         run: |
           xcodebuild -project ClipEdit.xcodeproj \
@@ -42,9 +62,18 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
-      - name: Sign App (Ad-hoc)
+      - name: Sign App
+        env:
+          HAS_CERT: ${{ secrets.MACOS_CERTIFICATE }}
         run: |
-          codesign --force --deep -s - ./build/Build/Products/Release/ClipEdit.app
+          if [ -n "$HAS_CERT" ]; then
+            echo "Signing with Apple Developer Certificate..."
+            codesign --force --deep --options runtime -s "Apple Development: Gustavo Benitez (LQQ6TWZK73)" ./build/Build/Products/Release/ClipEdit.app
+          else
+            echo "Signing with Ad-hoc signature..."
+            codesign --force --deep -s - ./build/Build/Products/Release/ClipEdit.app
+          fi
+          codesign -dvv ./build/Build/Products/Release/ClipEdit.app
 
       - name: Package App as ZIP
         run: |
@@ -73,3 +102,9 @@ jobs:
                - Right-click `ClipEdit.app` → select **Open** → click **Open**, or
                - Run `xattr -cr /Applications/ClipEdit.app` in Terminal.
             4. Press **⌘ + ⇧ + C** anywhere across macOS to edit your clipboard!
+
+      - name: Clean up keychain
+        if: always()
+        run: |
+          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db 2>/dev/null || true
+          rm -f $RUNNER_TEMP/build_certificate.p12
