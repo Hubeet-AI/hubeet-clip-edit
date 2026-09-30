@@ -13,5 +13,6 @@ xcuserdata/
 
 # Artifacts
 *.zip
+*.app
 .*/
 !.github/
