@@ -22,6 +22,7 @@
 		68283BF1C010103E2A6A5246 /* TransformPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429C8CDD8676AC57BAC6C87 /* TransformPipeline.swift */; };
 		6A4DA067ECE458FFB4386F12 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D0DEA24F5CD04CF161279 /* EditorView.swift */; };
 		7E89A4124C1DEE99365222BA /* JSONTransforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACAD652D44370E9E4163AB2 /* JSONTransforms.swift */; };
+		880762AEFFB5A4A0BE17EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C6DE7709606948AC0EAAA1 /* Assets.xcassets */; };
 		8DE5D936941FA209DAC12CE1 /* EditorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7A57085D3FD13BB4EC431 /* EditorPanel.swift */; };
 		8FF58C745333A77DE2CA1427 /* ClipboardSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169600E2805DADA2236601A /* ClipboardSnapshot.swift */; };
 		A7314AB23D35A02922A9EC1F /* ClipboardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B9B94217C522628A3016E2 /* ClipboardContent.swift */; };
@@ -71,6 +72,7 @@
 		AACAD652D44370E9E4163AB2 /* JSONTransforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTransforms.swift; sourceTree = "<group>"; };
 		B2DF9D689C53B662E4D54BB8 /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 		B3A460285389046409E40F72 /* ClipboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardService.swift; sourceTree = "<group>"; };
+		B8C6DE7709606948AC0EAAA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB066B61C5E58F261FB82319 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CF46A26328AC1C8FDCB2BC92 /* CaseTransforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTransforms.swift; sourceTree = "<group>"; };
 		DB2F8F7165BC42F1523C31B5 /* TrimTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimTransform.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				FCEA51E7630555CCBEC8C276 /* AppIcon.icns */,
+				B8C6DE7709606948AC0EAAA1 /* Assets.xcassets */,
 				A866DB0D7D7E2D97B05DB0A7 /* ClipEdit.entitlements */,
 				44E5F8465AF953B2B010C132 /* hubeet-clip-ico.png */,
 				0E4473F2F546EDBD8AA086BC /* Info.plist */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1964F9CDC2C971F680903A4 /* AppIcon.icns in Resources */,
+				880762AEFFB5A4A0BE17EA15 /* Assets.xcassets in Resources */,
 				4C6BA81DD0FF2ACF6977B801 /* hubeet-clip-ico.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

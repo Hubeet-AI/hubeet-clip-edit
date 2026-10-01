@@ -41,11 +41,7 @@ public struct EditorView: View {
     // MARK: - Header
     private var headerView: some View {
         HStack(spacing: 8) {
-            Image(nsImage: NSApp.applicationIconImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 18, height: 18)
-                .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+            headerIconView
 
             Text("Hubeet ClipEdit")
                 .font(.system(size: 13, weight: .semibold, design: .rounded))
@@ -83,6 +79,28 @@ public struct EditorView: View {
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
+    }
+
+    @ViewBuilder
+    private var headerIconView: some View {
+        if let path = Bundle.main.path(forResource: "hubeet-clip-ico", ofType: "png"),
+           let nsImage = NSImage(contentsOfFile: path) {
+            Image(nsImage: nsImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 18, height: 18)
+                .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+        } else if let icon = NSImage(named: "AppIcon") ?? NSApp.applicationIconImage {
+            Image(nsImage: icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 18, height: 18)
+                .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+        } else {
+            Image(systemName: "doc.on.clipboard.fill")
+                .foregroundStyle(Color.accentColor)
+                .imageScale(.medium)
+        }
     }
 
     // MARK: - Content

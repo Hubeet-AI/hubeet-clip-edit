@@ -20,10 +20,21 @@ public final class StatusBarController {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let button = statusItem?.button {
-            button.image = NSImage(
-                systemSymbolName: "doc.on.clipboard",
-                accessibilityDescription: "ClipEdit"
-            )
+            if let iconPath = Bundle.main.path(forResource: "hubeet-clip-ico", ofType: "png"),
+               let image = NSImage(contentsOfFile: iconPath) {
+                image.size = NSSize(width: 18, height: 18)
+                image.isTemplate = false
+                button.image = image
+            } else if let appIcon = NSImage(named: "AppIcon") {
+                let iconCopy = appIcon.copy() as! NSImage
+                iconCopy.size = NSSize(width: 18, height: 18)
+                button.image = iconCopy
+            } else {
+                button.image = NSImage(
+                    systemSymbolName: "doc.on.clipboard",
+                    accessibilityDescription: "Hubeet ClipEdit"
+                )
+            }
         }
 
         let menu = NSMenu()

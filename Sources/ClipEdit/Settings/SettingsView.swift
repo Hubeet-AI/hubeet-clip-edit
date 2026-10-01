@@ -140,9 +140,7 @@ public struct SettingsView: View {
     // MARK: - About Tab
     private var aboutTab: some View {
         VStack(spacing: 12) {
-            Image(nsImage: NSApp.applicationIconImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            aboutIconView
                 .frame(width: 64, height: 64)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                 .shadow(color: Color.black.opacity(0.15), radius: 6, x: 0, y: 3)
@@ -169,5 +167,24 @@ public struct SettingsView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    @ViewBuilder
+    private var aboutIconView: some View {
+        if let path = Bundle.main.path(forResource: "hubeet-clip-ico", ofType: "png"),
+           let nsImage = NSImage(contentsOfFile: path) {
+            Image(nsImage: nsImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } else if let icon = NSImage(named: "AppIcon") ?? NSApp.applicationIconImage {
+            Image(nsImage: icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } else {
+            Image(systemName: "doc.on.clipboard.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundStyle(Color.accentColor)
+        }
     }
 }
